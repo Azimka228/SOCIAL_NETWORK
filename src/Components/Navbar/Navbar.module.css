@@ -1,0 +1,5 @@
+.Navbar{
+    grid-area: navbar;
+    background-color: gray;
+    color: #ffffff;
+}

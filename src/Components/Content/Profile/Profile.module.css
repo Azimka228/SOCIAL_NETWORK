@@ -1,0 +1,5 @@
+.Content{
+    grid-area: content;
+    background-color: rgba(236, 235, 235, 0.85);
+    color: black;
+}

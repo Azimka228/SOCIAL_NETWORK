@@ -1,10 +1,15 @@
 import React from 'react';
-import './App.css';
+import s from './App.module.css';
+import {Header} from "./Components/Header/Header";
+import Navbar from "./Components/Navbar/Navbar";
+import Profile from "./Components/Content/Profile/Profile";
 
 function App() {
   return (
-    <div className="App">
-     Hello, samurai! Let's go!
+    <div className={s.App}>
+        <Header/>
+        <Navbar/>
+        <Profile/>
     </div>
   );
 }

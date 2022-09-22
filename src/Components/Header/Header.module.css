@@ -1,0 +1,5 @@
+.Header{
+    grid-area: header;
+    color: white;
+    background-color: #20232a;
+}

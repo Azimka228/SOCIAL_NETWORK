@@ -1,0 +1,8 @@
+.App {
+    display: grid;
+    grid-template-rows: 60px 1fr;
+    grid-template-columns: 1fr 5fr;
+    grid-template-areas:
+    "header header header"
+    "navbar content content";
+}
