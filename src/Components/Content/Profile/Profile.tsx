@@ -1,6 +1,6 @@
 import React from "react";
 import s from "./Profile.module.css"
-import Posts from "./Posts/Posts";
+import Post from "./Post/Post";
 import AboutUser from "./AboutUser/AboutUser";
 import AddPost from "./AddPost/AddPost";
 
@@ -10,7 +10,8 @@ const Profile = () => {
 			<img src="https://www.interfax.ru/ftproot/photos/photostory/2019/10/16/wild1_700.jpg" alt="dda"/>
 			<AboutUser/>
 			<AddPost/>
-			<Posts/>
+			<Post  avatar={'https://klike.net/uploads/posts/2019-05/1556708032_1.jpg'} message={'Hi'} likes={3}/>
+			<Post  avatar={'https://klike.net/uploads/posts/2019-05/1556708032_1.jpg'} message={'LOX'} likes={1}/>
 		</div>
 	);
 };
