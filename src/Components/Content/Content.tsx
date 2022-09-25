@@ -1,10 +1,11 @@
 import React from "react";
-import Profile from "./Profile/Profile";
+
+import Dialogs from "./Dialogs/Dialogs";
 
 const Content = () => {
 	return (
 		<>
-			<Profile/>
+			<Dialogs/>
 		</>
 	);
 };
