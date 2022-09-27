@@ -3,10 +3,11 @@ import s from './Navbar.module.css'
 const Navbar = () => {
 	return (
 		<nav className={s.Navbar}>
-			<div><a href="#">Profile</a></div>
-			<div><a href="#">Message</a></div>
-			<div><a href="#">Settings</a></div>
-			<div><a href="#">Groups</a></div>
+			<div><a href="/profile">Profile</a></div>
+			<div><a href="/message">Message</a></div>
+			<div><a href="/groups">Groups</a></div>
+			<div><a href="/settings">Settings</a></div>
+
 		</nav>
 	);
 };

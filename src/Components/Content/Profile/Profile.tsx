@@ -7,7 +7,9 @@ import AddPost from "./AddPost/AddPost";
 const Profile = () => {
 	return (
 		<div className={s.Content}>
-			<img src="https://www.interfax.ru/ftproot/photos/photostory/2019/10/16/wild1_700.jpg" alt="dda"/>
+			<div className={s.img}>
+				<img src="https://www.interfax.ru/ftproot/photos/photostory/2019/10/16/wild1_700.jpg" alt="dda"/>
+			</div>
 			<AboutUser/>
 			<AddPost/>
 			<Post  avatar={'https://klike.net/uploads/posts/2019-05/1556708032_1.jpg'} message={'Hi'} likes={3}/>
