@@ -1,5 +1,19 @@
 .Navbar{
     grid-area: navbar;
     background-color: gray;
-    color: #ffffff;
+    color: rgb(225,225,230);
+    padding: 20px;
+    border-radius: 5px;
+    margin-right: 10px;
+    box-shadow: rgb(211, 211, 211) 1px 1px;
+}
+.item{
+    margin-bottom: 10px;
+}
+.item a{
+    color: white;
+    text-decoration:none;
+}
+.item a.active{
+    border-bottom: 5px solid dodgerblue;
 }

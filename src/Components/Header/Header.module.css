@@ -1,6 +1,9 @@
 .Header{
     grid-area: header;
-    color: white;
+    color: rgb(225,225,230);
     background-color: #20232a;
-    width: 1020px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    padding: 20px;
+    align-self: center;
 }

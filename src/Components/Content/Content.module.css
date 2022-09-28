@@ -1,5 +1,9 @@
 .Content {
     grid-area: content;
-    background-color: rgba(236, 235, 235, 0.85);
-    color: black;
+    color: rgb(225,225,230);
+    border: 3px solid ;
+    border-radius: 5px;
+    background-color: gray;
+    box-shadow: rgb(211, 211, 211) 1px 1px;
+    padding: 10px;
 }
