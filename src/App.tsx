@@ -5,13 +5,22 @@ import Navbar from "./Components/Navbar/Navbar";
 import Content from "./Components/Content/Content";
 import {BrowserRouter} from "react-router-dom";
 
-function App() {
+type AppPropsType = {
+	state: StateType
+}
+
+type StateType = {
+	DialogsPage: object
+	ProfilePage: object
+}
+
+function App(props:AppPropsType) {
 	return (
 		<BrowserRouter>
 			<div className={s.App}>
 				<Header/>
 				<Navbar/>
-				<Content/>
+				<Content state={props.state}/>
 			</div>
 		</BrowserRouter>
 
