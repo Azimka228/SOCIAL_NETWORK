@@ -10,6 +10,13 @@ type MessageArrayType = {
 }
 
 const Message = (props: MessagesPropsType) => {
+
+	let TextareaText = React.useRef<HTMLTextAreaElement>(null)
+
+	const AddMessage = () => {
+		alert(TextareaText.current?.value)
+	}
+
 	return (
 		<>
 			{
@@ -17,6 +24,8 @@ const Message = (props: MessagesPropsType) => {
 					return (<div className={s.message}>{message.text}</div>)
 				})
 			}
+			<textarea ref={TextareaText}/>
+			<button onClick={AddMessage}>ADD</button>
 		</>
 	);
 };
