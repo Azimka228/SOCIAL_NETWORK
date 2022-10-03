@@ -1,3 +1,6 @@
+import React from "react";
+import {rerenderEntireTree} from "../render";
+
 let state = {
 	DialogsPage: {
 		usersData: [
@@ -15,21 +18,25 @@ let state = {
 	ProfilePage: {
 		posts: [
 			{
+				id:1,
 				avatar: "https://klike.net/uploads/posts/2019-05/1556708032_1.jpg",
 				message: "Hi",
 				likes: 3,
 			},
 			{
+				id:2,
 				avatar: "https://klike.net/uploads/posts/2019-05/1556708032_1.jpg",
 				message: "Hi",
 				likes: 3,
 			},
 			{
+				id:3,
 				avatar: "https://klike.net/uploads/posts/2019-05/1556708032_1.jpg",
 				message: "Hello",
 				likes: 12,
 			},
 			{
+				id:4,
 				avatar: "https://klike.net/uploads/posts/2019-05/1556708032_1.jpg",
 				message: "Wow",
 				likes: 2,
@@ -37,5 +44,16 @@ let state = {
 		],
 	}
 
+}
+
+export let addPost = (text: string) => {
+	const newPost = {
+		avatar: "https://klike.net/uploads/posts/2019-05/1556708032_1.jpg",
+		id: 5,
+		likes: 0,
+		message: text,
+	}
+	state.ProfilePage.posts.push(newPost)
+	rerenderEntireTree(state)
 }
 export default state

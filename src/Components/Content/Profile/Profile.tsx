@@ -14,7 +14,7 @@ const Profile = (props:any) => {
 	return (
 		<div className={s.Content}>
 			<AboutUser/>
-			<AddPost/>
+			<AddPost addPost={props.addPost}/>
 			{PostsElements}
 		</div>
 	);

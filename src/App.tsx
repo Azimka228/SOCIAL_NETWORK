@@ -7,9 +7,10 @@ import {BrowserRouter} from "react-router-dom";
 
 type AppPropsType = {
 	state: StateType
+	addPost: (e:string) => void
 }
 
-type StateType = {
+export type StateType = {
 	DialogsPage: object
 	ProfilePage: object
 }
@@ -20,7 +21,7 @@ function App(props:AppPropsType) {
 			<div className={s.App}>
 				<Header/>
 				<Navbar/>
-				<Content state={props.state}/>
+				<Content state={props.state} addPost={props.addPost}/>
 			</div>
 		</BrowserRouter>
 

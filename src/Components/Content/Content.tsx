@@ -6,6 +6,7 @@ import Profile from "./Profile/Profile";
 
 type ContentPropsType = {
 	state: any
+	addPost: any
 }
 
 const Content = (props: ContentPropsType) => {
@@ -15,7 +16,7 @@ const Content = (props: ContentPropsType) => {
 		<div className={s.Content}>
 			<Switch>
 				<Route path="/message" component={() => <Dialogs state={props.state.DialogsPage}/>}/>
-				<Route path="/profile" component={() => <Profile state={props.state.ProfilePage}/>}/>
+				<Route path="/profile" component={() => <Profile state={props.state.ProfilePage} addPost={props.addPost}/>}/>
 			</Switch>
 		</div>
 	);

@@ -1,9 +1,10 @@
 import React from "react";
 
-const AddPost = () => {
+const AddPost = (props:any) => {
 	const newPostElement = React.useRef<HTMLTextAreaElement>(null);
 	const AppendPost = (): void => {
-		alert(newPostElement.current?.value)
+		let Post = (newPostElement.current?.value)
+		props.addPost(Post)
 	}
 	return (
 		<>
