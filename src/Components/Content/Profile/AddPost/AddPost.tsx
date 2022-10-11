@@ -6,10 +6,13 @@ const AddPost = (props:any) => {
 		let Post = (newPostElement.current?.value)
 		props.addPost(Post)
 	}
+	const ChangeTextAreaValue = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+		props.updateNewPostText(e.currentTarget.value)
+	}
 	return (
 		<>
 			<div className="Posts_input">
-				<textarea ref={newPostElement} />
+				<textarea onChange={ChangeTextAreaValue} value={props.newPostText} ref={newPostElement} />
 			</div>
 			<div className="Posts_button">
 				<button onClick={AppendPost}>Send</button>

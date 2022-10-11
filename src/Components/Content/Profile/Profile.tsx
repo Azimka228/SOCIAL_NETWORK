@@ -14,7 +14,10 @@ const Profile = (props:any) => {
 	return (
 		<div className={s.Content}>
 			<AboutUser/>
-			<AddPost addPost={props.addPost}/>
+			<AddPost
+				updateNewPostText={props.updateNewPostText}
+				newPostText={props.state.newPostText}
+				addPost={props.addPost}/>
 			{PostsElements}
 		</div>
 	);

@@ -8,6 +8,7 @@ import {BrowserRouter} from "react-router-dom";
 type AppPropsType = {
 	state: StateType
 	addPost: (e:string) => void
+	updateNewPostText: (e:string) => void
 }
 
 export type StateType = {
@@ -21,7 +22,12 @@ function App(props:AppPropsType) {
 			<div className={s.App}>
 				<Header/>
 				<Navbar/>
-				<Content state={props.state} addPost={props.addPost}/>
+				<Content
+					state={props.state}
+					addPost={props.addPost}
+					updateNewPostText={props.updateNewPostText}
+				/>
+
 			</div>
 		</BrowserRouter>
 

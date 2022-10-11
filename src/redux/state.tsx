@@ -1,5 +1,8 @@
 import React from "react";
-import {rerenderEntireTree} from "../render";
+
+let rerenderEntireTree = () => {
+	console.log("changed")
+}
 
 let state = {
 	DialogsPage: {
@@ -18,35 +21,36 @@ let state = {
 	ProfilePage: {
 		posts: [
 			{
-				id:1,
+				id: 1,
 				avatar: "https://klike.net/uploads/posts/2019-05/1556708032_1.jpg",
 				message: "Hi",
 				likes: 3,
 			},
 			{
-				id:2,
+				id: 2,
 				avatar: "https://klike.net/uploads/posts/2019-05/1556708032_1.jpg",
 				message: "Hi",
 				likes: 3,
 			},
 			{
-				id:3,
+				id: 3,
 				avatar: "https://klike.net/uploads/posts/2019-05/1556708032_1.jpg",
 				message: "Hello",
 				likes: 12,
 			},
 			{
-				id:4,
+				id: 4,
 				avatar: "https://klike.net/uploads/posts/2019-05/1556708032_1.jpg",
 				message: "Wow",
 				likes: 2,
 			}
 		],
+		newPostText: "hi",
 	}
 
 }
 
-export let addPost = (text: string) => {
+export const addPost = (text: string) => {
 	const newPost = {
 		avatar: "https://klike.net/uploads/posts/2019-05/1556708032_1.jpg",
 		id: 5,
@@ -54,6 +58,16 @@ export let addPost = (text: string) => {
 		message: text,
 	}
 	state.ProfilePage.posts.push(newPost)
-	rerenderEntireTree(state)
+	state.ProfilePage.newPostText = ""
+	rerenderEntireTree()
 }
+export const updateNewPostText = (text: string) => {
+	state.ProfilePage.newPostText = text
+	rerenderEntireTree()
+}
+
+export const subscribe = (observer: () => void) => {
+	rerenderEntireTree = observer
+}
+
 export default state
