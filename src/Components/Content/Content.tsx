@@ -6,8 +6,7 @@ import Profile from "./Profile/Profile";
 
 type ContentPropsType = {
 	state: any
-	addPost: any
-	updateNewPostText: any
+	dispatch: any
 }
 
 const Content = (props: ContentPropsType) => {
@@ -18,8 +17,7 @@ const Content = (props: ContentPropsType) => {
 				<Route path="/profile"
 					   render={() => <Profile
 						   state={props.state.ProfilePage}
-						   addPost={props.addPost}
-						   updateNewPostText={props.updateNewPostText}
+									dispatch={props.dispatch}
 					   />}/>
 
 			</Switch>

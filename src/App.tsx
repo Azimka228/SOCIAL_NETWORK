@@ -7,8 +7,7 @@ import {BrowserRouter} from "react-router-dom";
 
 type AppPropsType = {
 	state: StateType
-	addPost: (e:string) => void
-	updateNewPostText: (e:string) => void
+	dispatch: any
 }
 
 export type StateType = {
@@ -24,8 +23,7 @@ function App(props:AppPropsType) {
 				<Navbar/>
 				<Content
 					state={props.state}
-					addPost={props.addPost}
-					updateNewPostText={props.updateNewPostText}
+					dispatch={props.dispatch}
 				/>
 
 			</div>

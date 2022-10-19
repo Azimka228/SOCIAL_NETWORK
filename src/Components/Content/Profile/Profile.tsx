@@ -15,9 +15,9 @@ const Profile = (props:any) => {
 		<div className={s.Content}>
 			<AboutUser/>
 			<AddPost
-				updateNewPostText={props.updateNewPostText}
+				dispatch={props.dispatch}
 				newPostText={props.state.newPostText}
-				addPost={props.addPost}/>
+				/>
 			{PostsElements}
 		</div>
 	);

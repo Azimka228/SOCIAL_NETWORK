@@ -4,10 +4,10 @@ const AddPost = (props:any) => {
 	const newPostElement = React.useRef<HTMLTextAreaElement>(null);
 	const AppendPost = (): void => {
 		let Post = (newPostElement.current?.value)
-		props.addPost(Post)
+		props.dispatch({type:"ADD-POST",value:Post})
 	}
 	const ChangeTextAreaValue = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
-		props.updateNewPostText(e.currentTarget.value)
+		props.dispatch({type:"UPDATE-NEW-POST-TEXT",value:(e.currentTarget.value)})
 	}
 	return (
 		<>
