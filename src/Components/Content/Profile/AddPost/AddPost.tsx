@@ -1,18 +1,21 @@
 import React from "react";
+import {addPostActionCreator, updateNewPostText} from "../../../../redux/state";
 
-const AddPost = (props:any) => {
+
+
+const AddPost = (props: any) => {
 	const newPostElement = React.useRef<HTMLTextAreaElement>(null);
 	const AppendPost = (): void => {
-		let Post = (newPostElement.current?.value)
-		props.dispatch({type:"ADD-POST",value:Post})
+		props.dispatch(addPostActionCreator())
 	}
 	const ChangeTextAreaValue = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
-		props.dispatch({type:"UPDATE-NEW-POST-TEXT",value:(e.currentTarget.value)})
+
+		props.dispatch(updateNewPostText((e.currentTarget.value)))
 	}
 	return (
 		<>
 			<div className="Posts_input">
-				<textarea onChange={ChangeTextAreaValue} value={props.newPostText} ref={newPostElement} />
+				<textarea onChange={ChangeTextAreaValue} value={props.newPostText} ref={newPostElement}/>
 			</div>
 			<div className="Posts_button">
 				<button onClick={AppendPost}>Send</button>

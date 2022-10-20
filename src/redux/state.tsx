@@ -1,8 +1,11 @@
 import React from "react";
 
+const ADD_POST = "ADD-POST"
+const UPDATE_NEW_POST_TEXT = "UPDATE-NEW-POST-TEXT"
+
 export type ActionType = {
 	type: string,
-	value: string
+	newText: string
 }
 
 let store = {
@@ -57,25 +60,12 @@ let store = {
 	getState() {
 		return this._state
 	},
-	addPost(text: string) {
-		const newPost = {
-			avatar: "https://klike.net/uploads/posts/2019-05/1556708032_1.jpg",
-			id: 5,
-			likes: 0,
-			message: text,
-		}
-		this._state.ProfilePage.posts.push(newPost)
-		this._state.ProfilePage.newPostText = ""
-		this._callSubscriber()
-	},
-	updateNewPostText(text: string) {
-		this._state.ProfilePage.newPostText = text
-		this._callSubscriber()
-	},
 	subscribe(observer: () => void) {
 		this._callSubscriber = observer
 	},
+
 	dispatch(action: ActionType) {
+
 		if (action.type === "ADD-POST") {
 			const newPost = {
 				avatar: "https://klike.net/uploads/posts/2019-05/1556708032_1.jpg",
@@ -87,11 +77,19 @@ let store = {
 			this._state.ProfilePage.newPostText = ""
 			this._callSubscriber()
 		} else if (action.type === "UPDATE-NEW-POST-TEXT") {
-			this._state.ProfilePage.newPostText = action.value
+			this._state.ProfilePage.newPostText = action.newText
 			this._callSubscriber()
 		}
 	}
 }
+
+export const addPostActionCreator = () => {
+	return {type: ADD_POST}
+}
+export const updateNewPostText = (value:string) => {
+	return {type: UPDATE_NEW_POST_TEXT, newText: value}
+}
+
 
 export default store
 // @ts-ignore
