@@ -1,7 +1,5 @@
 import React from "react";
-import {addPostActionCreator, updateNewPostText} from "../../../../redux/state";
-
-
+import {addPostActionCreator, updateNewPostTextActionCreator} from "../../../../redux/state";
 
 const AddPost = (props: any) => {
 	const newPostElement = React.useRef<HTMLTextAreaElement>(null);
@@ -10,7 +8,7 @@ const AddPost = (props: any) => {
 	}
 	const ChangeTextAreaValue = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
 
-		props.dispatch(updateNewPostText((e.currentTarget.value)))
+		props.dispatch(updateNewPostTextActionCreator((e.currentTarget.value)))
 	}
 	return (
 		<>

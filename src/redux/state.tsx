@@ -1,11 +1,17 @@
 import React from "react";
+import ProfileReducer from "./profile-reducer";
+import DialogsReducer from "./dialogs-reducer";
 
 const ADD_POST = "ADD-POST"
 const UPDATE_NEW_POST_TEXT = "UPDATE-NEW-POST-TEXT"
 
+const UPDATE_NEW_MESSAGE_BODY = "UPDATE_NEW_MESSAGE_BODY"
+const SEND_MESSAGE = "SEND_MESSAGE"
+
 export type ActionType = {
 	type: string,
-	newText: string
+	newText?: string
+	newBody?: string
 }
 
 let store = {
@@ -22,6 +28,7 @@ let store = {
 				{id: "2", text: "My dear"},
 				{id: "3", text: "YEAH"},
 			],
+			newMessageBody: "das"
 		},
 		ProfilePage: {
 			posts: [
@@ -50,7 +57,7 @@ let store = {
 					likes: 2,
 				}
 			],
-			newPostText: "hi",
+			newPostText: "hi"
 		}
 
 	},
@@ -65,31 +72,26 @@ let store = {
 	},
 
 	dispatch(action: ActionType) {
+		this._state.ProfilePage = ProfileReducer(this._state.ProfilePage,action)
+		this._state.DialogsPage = DialogsReducer(this._state.DialogsPage,action)
+		this._callSubscriber()
 
-		if (action.type === "ADD-POST") {
-			const newPost = {
-				avatar: "https://klike.net/uploads/posts/2019-05/1556708032_1.jpg",
-				id: 5,
-				likes: 0,
-				message: this._state.ProfilePage.newPostText,
-			}
-			this._state.ProfilePage.posts.push(newPost)
-			this._state.ProfilePage.newPostText = ""
-			this._callSubscriber()
-		} else if (action.type === "UPDATE-NEW-POST-TEXT") {
-			this._state.ProfilePage.newPostText = action.newText
-			this._callSubscriber()
-		}
 	}
 }
 
 export const addPostActionCreator = () => {
 	return {type: ADD_POST}
 }
-export const updateNewPostText = (value:string) => {
+export const updateNewPostTextActionCreator = (value: string) => {
 	return {type: UPDATE_NEW_POST_TEXT, newText: value}
 }
 
+export const updateNewMessageBodyActionCreator = (value: string) => {
+	return {type: UPDATE_NEW_MESSAGE_BODY, newBody:value}
+}
+export const sendMessageActionCreator = () => {
+	return {type: SEND_MESSAGE}
+}
 
 export default store
 // @ts-ignore

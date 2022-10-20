@@ -13,7 +13,10 @@ const Content = (props: ContentPropsType) => {
 	return (
 		<div className={s.Content}>
 			<Switch>
-				<Route path="/message" render={() => <Dialogs state={props.state.DialogsPage}/>}/>
+				<Route path="/message" render={() => <Dialogs
+					state={props.state.DialogsPage}
+					dispatch={props.dispatch}
+				/>}/>
 				<Route path="/profile"
 					   render={() => <Profile
 						   state={props.state.ProfilePage}
