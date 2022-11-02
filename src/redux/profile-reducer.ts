@@ -1,8 +1,37 @@
 const ADD_POST = "ADD-POST"
 const UPDATE_NEW_POST_TEXT = "UPDATE-NEW-POST-TEXT"
 
-const ProfileReducer = (state: any, action: any) => {
+let initialState = {
+	posts: [
+		{
+			id: 1,
+			avatar: "https://klike.net/uploads/posts/2019-05/1556708032_1.jpg",
+			message: "Hi",
+			likes: 3,
+		},
+		{
+			id: 2,
+			avatar: "https://klike.net/uploads/posts/2019-05/1556708032_1.jpg",
+			message: "Hi",
+			likes: 3,
+		},
+		{
+			id: 3,
+			avatar: "https://klike.net/uploads/posts/2019-05/1556708032_1.jpg",
+			message: "Hello",
+			likes: 12,
+		},
+		{
+			id: 4,
+			avatar: "https://klike.net/uploads/posts/2019-05/1556708032_1.jpg",
+			message: "Wow",
+			likes: 2,
+		}
+	],
+	newPostText: "hi"
+}
 
+const ProfileReducer = (state=initialState, action: any) => {
 	if (action.type === ADD_POST) {
 		const newPost = {
 			avatar: "https://klike.net/uploads/posts/2019-05/1556708032_1.jpg",

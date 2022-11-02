@@ -1,39 +1,32 @@
 import React, {ChangeEventHandler} from "react";
 import s from "../Dialogs.module.css";
-import {ActionType, sendMessageActionCreator, updateNewMessageBodyActionCreator} from "../../../../redux/state";
 
 type MessagesPropsType = {
-	state: MessageStateType
-	dispatch: (action: ActionType) => void
+	sendMessage: () => void
+	updateNewMessageBody: (body:string) => void
+	messagesData: any
+	newMessageBody: any
 }
 
-type MessageStateType = {
-	usersData:  Array<MessageArrayType>
-	messagesData:  Array<MessageArrayType>
-	newMessageBody: string
-}
-type MessageArrayType = {
-	id: string
-	text: string
-}
+
 
 const Message = (props: MessagesPropsType) => {
 
-	const sendMessage = () => {
-		props.dispatch(sendMessageActionCreator())
+	const OnSendMessageClick = () => {
+		props.sendMessage()
 	}
 	const updateNewMessageBody:ChangeEventHandler<HTMLTextAreaElement> = (e) => {
-		props.dispatch(updateNewMessageBodyActionCreator((e.currentTarget?.value)))
+		props.updateNewMessageBody((e.currentTarget?.value))
 	}
 	return (
 		<>
 			{
-				props.state.messagesData.map((message: MessageArrayType) => {
+				props.messagesData.map((message:any) => {
 					return (<div className={s.message}>{message.text}</div>)
 				})
 			}
-			<textarea value={props.state.newMessageBody} onChange={updateNewMessageBody}/>
-			<button onClick={sendMessage}>ADD</button>
+			<textarea value={props.newMessageBody} onChange={updateNewMessageBody}/>
+			<button onClick={OnSendMessageClick}>ADD</button>
 		</>
 	);
 };

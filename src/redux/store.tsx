@@ -72,6 +72,7 @@ let store = {
 	},
 
 	dispatch(action: ActionType) {
+		// @ts-ignore
 		this._state.ProfilePage = ProfileReducer(this._state.ProfilePage,action)
 		this._state.DialogsPage = DialogsReducer(this._state.DialogsPage,action)
 		this._callSubscriber()
