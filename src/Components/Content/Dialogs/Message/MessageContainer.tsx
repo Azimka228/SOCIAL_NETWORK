@@ -1,36 +1,26 @@
 import React from "react";
-import {ActionType, sendMessageActionCreator, updateNewMessageBodyActionCreator} from "../../../../redux/store";
+import {sendMessageActionCreator, updateNewMessageBodyActionCreator} from "../../../../redux/store";
 import Message from "./Message";
+import {connect} from "react-redux";
 
-type MessagesPropsType = {
-	store: MessageStateType
-	dispatch: (action: ActionType) => void
-}
-
-type MessageStateType = {
-	usersData: Array<MessageArrayType>
-	messagesData: Array<MessageArrayType>
-	newMessageBody: string
-}
-type MessageArrayType = {
-	id: string
-	text: string
-}
-
-const MessageContainer = (props: MessagesPropsType) => {
-
-	const sendMessage = () => {
-		props.dispatch(sendMessageActionCreator())
+const mapStateToProps = (store: { DialogsPage: { messagesData: any; newMessageBody: any; }; }) => {
+	return {
+		messagesData: store.DialogsPage.messagesData,
+		newMessageBody: store.DialogsPage.newMessageBody
 	}
-	const updateNewMessageBody = (e:string) => {
-		props.dispatch(updateNewMessageBodyActionCreator((e)))
+}
+
+const mapDispatchToProps = (dispatch: (arg0: { type: string; newBody?: string; }) => void) => {
+	return {
+		sendMessage : () => {
+		dispatch(sendMessageActionCreator())
+	},
+		updateNewMessageBody : (e:string) => {
+		dispatch(updateNewMessageBodyActionCreator((e)))
 	}
-	return (<Message
-		messagesData={props.store.messagesData}
-		newMessageBody={props.store.newMessageBody}
-	 sendMessage={sendMessage}
-		updateNewMessageBody={updateNewMessageBody}
-	/>)
-};
+	}
+}
+
+const MessageContainer = connect(mapStateToProps,mapDispatchToProps,)(Message)
 
 export default MessageContainer;

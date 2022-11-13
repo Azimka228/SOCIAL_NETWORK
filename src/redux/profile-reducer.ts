@@ -44,7 +44,7 @@ const ProfileReducer = (state=initialState, action: any) => {
 	} else if (action.type === UPDATE_NEW_POST_TEXT && action.newText) {
 		state.newPostText = action.newText
 	}
-return state
+return {...state}
 
 };
 

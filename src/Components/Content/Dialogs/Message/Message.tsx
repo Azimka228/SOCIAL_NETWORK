@@ -21,7 +21,7 @@ const Message = (props: MessagesPropsType) => {
 	return (
 		<>
 			{
-				props.messagesData.map((message:any) => {
+				props.messagesData?.map((message:any) => {
 					return (<div className={s.message}>{message.text}</div>)
 				})
 			}

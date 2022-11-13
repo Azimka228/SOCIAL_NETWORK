@@ -11,10 +11,7 @@ const Dialogs = (props: any) => {
 				<User users={props.store.usersData}/>
 			</div>
 			<div className={s.messages}>
-				<MessageContainer
-					store={props.store}
-					dispatch={props.dispatch}
-				/>
+				<MessageContainer/>
 			</div>
 		</div>
 	);

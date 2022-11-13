@@ -3,6 +3,7 @@ import s from "./Content.module.css"
 import Dialogs from "./Dialogs/Dialogs";
 import {Route, Switch} from "react-router-dom";
 import Profile from "./Profile/Profile";
+import UsersContainer from "./Users/UsersContainer";
 
 type ContentPropsType = {
 	store: any
@@ -22,7 +23,8 @@ const Content = (props: ContentPropsType) => {
 									store={props.store.ProfilePage}
 									dispatch={props.dispatch}
 					   />}/>
-
+				<Route path="/users"
+											render={() => <UsersContainer/>}/>
 			</Switch>
 		</div>
 	);

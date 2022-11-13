@@ -3,7 +3,6 @@ import s from "./Profile.module.css"
 import Post from "./Post/Post";
 import AboutUser from "./AboutUser/AboutUser";
 import AddPostContainer from "./AddPost/AddPostContainer";
-import StoreContext from "../../../StoreContext";
 
 const Profile = (props:any) => {
 	const posts = props.store.posts
@@ -15,17 +14,11 @@ const Profile = (props:any) => {
 	return (
 		<div className={s.Content}>
 			<AboutUser/>
-			<StoreContext.Consumer>
-				{
-				(store) => {
-				return	<AddPostContainer store={store.getState()} dispatch={store.dispatch.bind(store)}/>
-				}
-			}
-			</StoreContext.Consumer>
-
+			<AddPostContainer/>
 			{PostsElements}
 		</div>
 	);
 };
+
 
 export default Profile;
