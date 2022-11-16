@@ -1,39 +1,60 @@
 import React from "react";
 import Users from "./Users";
 import {connect} from "react-redux";
-import {followAC, setUserAC, unfollowAC, UserType} from "../../../redux/users-reducer";
+import {follow, setCurrentPage, setTotalCount, setUsers, unfollow, UserType} from "../../../redux/users-reducer";
 import {appStateType} from "../../../redux/redux-store";
-import {Dispatch} from "redux";
 
 type mapStateToProps = {
 	users: Array<UserType>
+	TotalCount: number
+	countPerPage: number
+	Page: number
 }
 
 let mapStateToProps = (state: appStateType): mapStateToProps => {
 	return {
-		users: state.UsersPage.Users
+		users: state.UsersPage.Users,
+		TotalCount: state.UsersPage.TotalCount,
+		countPerPage: state.UsersPage.countPerPage,
+		Page: state.UsersPage.Page
 	}
 }
 
-type mapDispatchToProps = {
-	follow: (userID:number) => void
-	unfollow: (userID:number) => void
-	setUsers: (users: UserType) => void
-}
+// type mapDispatchToProps = {
+// 	follow: (userID:number) => void
+// 	unfollow: (userID:number) => void
+// 	setUsers: (users: UserType) => void
+// 	setTotalCount: (count:number) => void
+// 	setCurrentPage: (page:number) => void
+// }
 
-let mapDispatchToProps = (dispatch: Dispatch): mapDispatchToProps => {
+// let mapDispatchToProps = (dispatch: Dispatch): mapDispatchToProps => {
+//
+// 	return {
+// 		follow: (userID:number) => {
+// 			dispatch(followAC(userID))
+// 		},
+// 		unfollow: (userID:number) => {
+// 			dispatch(unfollowAC(userID))
+// 		},
+// 		setUsers: (users: UserType) => {
+// 			dispatch(setUserAC(users))
+// 		},
+// 		setCurrentPage: (page:number) => {
+// 			dispatch(setCurrentPageAC(page))
+// 		},
+// 		setTotalCount: (count:number) => {
+// 			dispatch(setTotalCountAC(count))
+// 		}
+// 	}
+// }
 
-	return {
-		follow: (userID:number) => {
-			dispatch(followAC(userID))
-		},
-		unfollow: (userID:number) => {
-			dispatch(unfollowAC(userID))
-		},
-		setUsers: (users: UserType) => {
-			dispatch(setUserAC(users))
-		}
-	}
+let mapDispatchToProps = {
+	follow,
+	unfollow,
+	setUsers,
+	setCurrentPage,
+	setTotalCount
 }
 
 
