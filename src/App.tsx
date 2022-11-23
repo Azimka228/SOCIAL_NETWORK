@@ -6,7 +6,7 @@ import Content from "./Components/Content/Content";
 import {BrowserRouter} from "react-router-dom";
 
 type AppPropsType = {
-	state: StateType
+	store: any
 	dispatch: any
 }
 
@@ -22,7 +22,7 @@ function App(props:AppPropsType) {
 				<Header/>
 				<Navbar/>
 				<Content
-					state={props.state}
+					store={props.store}
 					dispatch={props.dispatch}
 				/>
 

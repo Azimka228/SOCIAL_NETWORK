@@ -2,10 +2,10 @@ import React from "react";
 import s from "./Profile.module.css"
 import Post from "./Post/Post";
 import AboutUser from "./AboutUser/AboutUser";
-import AddPost from "./AddPost/AddPost";
+import AddPostContainer from "./AddPost/AddPostContainer";
 
 const Profile = (props:any) => {
-	const posts = props.state.posts
+	const posts = props.store.posts
 
 	let PostsElements = posts.map((post:any) => (
 		<div><Post avatar={post.avatar} message={post.message} likes={post.likes}/></div>
@@ -14,13 +14,11 @@ const Profile = (props:any) => {
 	return (
 		<div className={s.Content}>
 			<AboutUser/>
-			<AddPost
-				dispatch={props.dispatch}
-				newPostText={props.state.newPostText}
-				/>
+			<AddPostContainer/>
 			{PostsElements}
 		</div>
 	);
 };
+
 
 export default Profile;
